@@ -1,26 +1,18 @@
 var sequence = require('when/sequence');
 
 // requires you to save your model in a seperate file
-var MandetsModel = require('./mandate');
+var MandateModel = require('./mandate');
 
 var mandates = [
-  {mandate: {type: 'string', maxlength: 40, nullable: false, unique: true},
-    mandate_id: {type: 'integer', nullable: false, unsigned: true},
-    created_at: {type: 'dateTime', nullable: false},
-    created_by: {type: 'integer', nullable: false},
-    updated_at: {type: 'dateTime', nullable: true},
-    updated_by: {type: 'integer', nullable: true}
-  },
-  {title: 'Title 1', html: '<p>Lorem ipsum dolor sit amet, graeco efficiendi ne nec, no cibo possit vix</p>'},
-  {title: 'Title 2', html: '<p>Lorem ipsum dolor sit amet, graeco efficiendi ne nec, no cibo possit vix</p>'},
-  {title: 'Title 3', html: '<p>Lorem ipsum dolor sit amet, graeco efficiendi ne nec, no cibo possit vix</p>'},
-  {title: 'Title 4', html: '<p>Lorem ipsum dolor sit amet, graeco efficiendi ne nec, no cibo possit vix</p>'}
+  {mandate: 'first mandate'  },
+  {mandate: 'second mandate'  },
+  {mandate: 'third mandate'  }
 ];
 
 
-var operations = posts.map(function (post) {
+var operations = mandates.map(function (mandate) {
   return function () {
-  	return PostModel.forge(post).save();
+  	return MandateModel.forge(mandate).save();
   }
 });
 

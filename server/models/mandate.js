@@ -1,5 +1,12 @@
-var orm = require('./orm');
+var bookshelf = require('./orm');
 
-var Mandate = orm.Model.extend({
+var Mandate = bookshelf.Model.extend({
   tableName: 'mandates'
 })
+
+var Mandates = bookshelf.Collection.extend({
+  model: Mandate
+});
+
+
+module.exports = Mandate

@@ -1,4 +1,4 @@
-{
+, defaultTo: 'user', defaultTo: 'user'{
   "name": "riskbacklog",
   "version": "1.0.0",
   "description": "a koa app for the riskbacklog",
