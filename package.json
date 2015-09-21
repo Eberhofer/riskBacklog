@@ -1,11 +1,11 @@
-, defaultTo: 'user', defaultTo: 'user'{
+{
   "name": "riskbacklog",
   "version": "1.0.0",
   "description": "a koa app for the riskbacklog",
   "main": "index.js",
   "scripts": {
     "start": "node index.js 3000",
-    "test": "node ./tests/*.js | tap-spec"
+    "test": "tape tests/*.js | tap-spec"
   },
   "author": "Peter Boschung",
   "license": "MIT",
