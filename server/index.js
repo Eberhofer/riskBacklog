@@ -9,9 +9,16 @@ var form = '<form action="/login" method="POST">\
 </form>';
 
 var app = koa();
+var route = require('koa-route');
 
 app.keys = ['secret1', 'secret2', 'secret3'];
 app.use(session(app));
+
+app.use(route.get('/mandates/:id', mandates.fetch));
+app.use(route.post('/mandates/', mandates.add));
+app.use(route.put('/mandates/:id', mandates.modify));
+app.use(route.delete('/mandates/:id', mandates.remove));
+
 
 app.use(function * home(next) {
   if (this.request.path !== '/') return yield next;
