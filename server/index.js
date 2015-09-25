@@ -1,6 +1,7 @@
 var koa = require('koa');
 var parse = require('co-body');
 var session = require('koa-session');
+var mandate = require('./models/mandate');
 
 var form = '<form action="/login" method="POST">\
   <input name="username" type="text" value="username">\
@@ -36,6 +37,15 @@ app.use(function* logout(next) {
   if (this.request.path !== '/logout') return yield next;
   this.session.authenticated = false;
   this.redirect('/login');
+});
+
+app.use(function * showmandates(next){
+  if (this.request.path !== '/mandates') return yield next;
+  if (this.request.method !== 'GET') return;
+  var p = mandate.collection().fetch().then(function(mandates) {
+
+   console.log(mandates.toJSON())
+ });
 });
 
 function server(port) {
