@@ -42,10 +42,12 @@ app.use(function* logout(next) {
 app.use(function * showmandates(next){
   if (this.request.path !== '/mandates') return yield next;
   if (this.request.method !== 'GET') return;
-  var p = mandate.collection().fetch().then(function(mandates) {
-
-   console.log(mandates.toJSON())
- });
+  var p = mandate.collection().fetch()
+  //.then(function(mandates) {
+  //      console.log(mandates.toJSON());
+  //      return mandates;
+  //    });
+  return this.body = p;
 });
 
 function server(port) {
