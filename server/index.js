@@ -2,6 +2,11 @@ var koa = require('koa');
 var parse = require('co-body');
 var session = require('koa-session');
 var mandate = require('./models/mandate');
+var views = require('co-views');
+var dust = require('dustjs-linkedin');
+var render views('views', {
+  map: {html: }
+})
 
 var form = '<form action="/login" method="POST">\
   <input name="username" type="text" value="username">\
